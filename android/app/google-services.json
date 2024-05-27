@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "629727507172",
+    "project_id": "prospero-central",
+    "storage_bucket": "prospero-central.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629727507172:android:ca4ad6310e3f57e5c072f1",
+        "android_client_info": {
+          "package_name": "com.example.prospero_central"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "629727507172-mk0idjmjbkqmnil2l5seatr7drogk09t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP54nnN8BuhsMs9tMtQkngGXUzPnCg4Qo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "629727507172-mk0idjmjbkqmnil2l5seatr7drogk09t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "629727507172-4n102qtllc2k9haqqh4ki4ouo09crkdr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.prosperoCentral"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
