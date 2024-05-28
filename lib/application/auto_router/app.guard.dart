@@ -9,12 +9,7 @@ class AuthGuard extends AutoRouteGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
     if (auth.currentUser != null) {
-      if (sharedPreferences.getBool('trader_login') == true) {
-        router.pushAndPopUntil( HistoryViewScreen(), predicate: (_) => false);
-      } else {
-        router.pushAndPopUntil(const TraderLoginScreen(),
-            predicate: (_) => false);
-      }
+      router.pushAndPopUntil(const HomeScreen(), predicate: (_) => false);
     } else {
       resolver.next();
     }

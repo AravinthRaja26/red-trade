@@ -39,7 +39,7 @@ class _LoginScreen extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xff3DDC84)),
+                      color: Color(0xff00AEEF)),
                 ),
               ),
             ),
@@ -60,7 +60,7 @@ class _LoginScreen extends StatelessWidget {
                 ),
                 prefixIcon: Icon(
                   Icons.email_outlined,
-                  color: Color(0xff3DDC84),
+                  color: Color(0xff00AEEF),
                 ),
               ),
             ),
@@ -85,7 +85,7 @@ class _LoginScreen extends StatelessWidget {
                 ),
                 prefixIcon: Icon(
                   Icons.lock_outline,
-                  color: Color(0xff3DDC84),
+                  color: Color(0xff00AEEF),
                 ),
               ),
             ),
@@ -101,7 +101,7 @@ class _LoginScreen extends StatelessWidget {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                            color: const Color(0xff3DDC84),
+                            color: const Color(0xff00AEEF),
                             borderRadius: BorderRadius.circular(16)),
                         child: const Padding(
                           padding: EdgeInsets.symmetric(

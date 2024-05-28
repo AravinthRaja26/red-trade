@@ -13,7 +13,6 @@ const onSurface = Color(0xFF202020);
 const onSurfaceVariant = Color(0xFF919197);
 
 late final FirebaseApp app;
-late final FirebaseApp tradingAppForSignals;
 late final FirebaseAuth auth;
 
 // Obtain shared preferences.
@@ -32,17 +31,6 @@ Future<void> main() async {
   app = await Firebase.initializeApp();
 
   auth = FirebaseAuth.instanceFor(app: app);
-
-  // Initialize secondary Firebase app
-  tradingAppForSignals = await Firebase.initializeApp(name: 'TRADING',
-    options: const FirebaseOptions(
-      apiKey: 'AIzaSyA0ocdCg_NqDMzXWwPed0j3VjoWPkfTF1c',
-      appId: '1:168764002174:android:21f2d8ae68a12607f8ed2f',
-      messagingSenderId: '168764002174',
-      projectId: 'trading-7e2cc',
-      databaseURL: 'https://trading-7e2cc.firebaseio.com',
-      storageBucket: 'trading-7e2cc.appspot.com',),);
-
 
   await NotificationService.init();
 

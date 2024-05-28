@@ -33,6 +33,11 @@ class NavigationService {
   }
 
   static navigateToHistory(BuildContext context) {
-    context.router.push(HistoryViewScreen());
+    context.router.push(const HistoryViewScreen());
+  }
+
+  static Future<dynamic> navigateToNewTrade(
+      BuildContext context, bool isMT5) async {
+    return await context.router.push(NewTradeScreen(isMT5: isMT5));
   }
 }

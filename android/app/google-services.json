@@ -1,43 +1,83 @@
 {
   "project_info": {
-    "project_number": "629727507172",
-    "project_id": "prospero-central",
-    "storage_bucket": "prospero-central.appspot.com"
+    "project_number": "579398922615",
+    "project_id": "trader-view-alert",
+    "storage_bucket": "trader-view-alert.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:629727507172:android:ca4ad6310e3f57e5c072f1",
+        "mobilesdk_app_id": "1:579398922615:android:8bbcc7153a7d68a0d47172",
         "android_client_info": {
-          "package_name": "com.example.prospero_central"
+          "package_name": "com.elite_signals.app"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "629727507172-mk0idjmjbkqmnil2l5seatr7drogk09t.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBP54nnN8BuhsMs9tMtQkngGXUzPnCg4Qo"
+          "current_key": "AIzaSyA02y0O9WJm3UUOcSNONQ4mIzW_EZYxpzU"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "629727507172-mk0idjmjbkqmnil2l5seatr7drogk09t.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "629727507172-4n102qtllc2k9haqqh4ki4ouo09crkdr.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.prosperoCentral"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579398922615:android:608c4d22aa65a216d47172",
+        "android_client_info": {
+          "package_name": "com.example.port_trades"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA02y0O9WJm3UUOcSNONQ4mIzW_EZYxpzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579398922615:android:210e21ee3fca516fd47172",
+        "android_client_info": {
+          "package_name": "com.example.redTrader"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA02y0O9WJm3UUOcSNONQ4mIzW_EZYxpzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579398922615:android:e2f672fc4a8968eed47172",
+        "android_client_info": {
+          "package_name": "com.tradeviewalerts.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA02y0O9WJm3UUOcSNONQ4mIzW_EZYxpzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
         }
       }
     }

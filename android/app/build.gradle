@@ -44,14 +44,14 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.prospero_central"
+        applicationId "com.example.redTrader"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
 
-        archivesBaseName = "unixForex_" + versionCode + "_" + versionName
+        archivesBaseName = "RT_" + versionCode + "_" + versionName
     }
 
     buildTypes {

@@ -53,7 +53,7 @@ class LoginViewModel extends BaseViewModel {
             content: Text(
           'Logged in successfully...',
         )));
-        NavigationService.navigateToTraderLogin(context);
+        NavigationService.navigateToHomeScreen(context);
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

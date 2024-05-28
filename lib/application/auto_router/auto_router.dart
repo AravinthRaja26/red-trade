@@ -17,5 +17,6 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: TraderLoginScreen.page),
         AutoRoute(page: HomeScreen.page),
         AutoRoute(page: HistoryViewScreen.page),
+        AutoRoute(page: NewTradeScreen.page),
       ];
 }

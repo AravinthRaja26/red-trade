@@ -1,17 +1,16 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:base_setup/data/models/signal.model.dart';
 import 'package:base_setup/data/service/navigation_service.dart';
 import 'package:base_setup/data/viewmodels/base_viewmodel.dart';
 import 'package:base_setup/main.dart';
-import 'package:base_setup/ui/home/mt4.screen.dart';
-import 'package:base_setup/ui/home/mt5.screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomeViewModel extends BaseViewModel {
-  HomeViewModel();
+class NewTradeViewModel extends BaseViewModel {
+  NewTradeViewModel({this.isMT5});
 
   /// News section
   List<Signal> signals = <Signal>[];
@@ -44,13 +43,16 @@ class HomeViewModel extends BaseViewModel {
   ];
   final priceValues = ['Market price', 'Customer price'];
 
+  bool? isMT5;
+
   ///
-  static ChangeNotifierProvider<HomeViewModel> buildWithProvider({
+  static ChangeNotifierProvider<NewTradeViewModel> buildWithProvider({
     required Widget Function(BuildContext context, Widget? child)? builder,
     Widget? child,
+    bool? isMT5,
   }) {
-    return ChangeNotifierProvider<HomeViewModel>(
-      create: (BuildContext context) => HomeViewModel()
+    return ChangeNotifierProvider<NewTradeViewModel>(
+      create: (BuildContext context) => NewTradeViewModel(isMT5: isMT5)
         ..getProtfolioData()
         ..getSignalData(),
       builder: builder,
@@ -75,9 +77,8 @@ class HomeViewModel extends BaseViewModel {
 
   void logout(BuildContext context) async {
     sharedPreferences.clear();
-    await auth.signOut();
     if (context.mounted) {
-      NavigationService.navigateToLogin(context);
+      NavigationService.navigateToTraderLogin(context);
     }
   }
 
@@ -106,42 +107,51 @@ class HomeViewModel extends BaseViewModel {
   }
 
   storeHomeData(String? type, BuildContext context) async {
-    final id = db.collection('quickTraderHistory').doc().id;
-    print(id);
-    await db.collection('quickTraderHistory').doc(id).set({
-      'assetValue': '${assetValue}',
-      'inputVolume': inputVolumeController.text,
-      'price': '${priceValue}',
-      'sl': slController.text,
-      'tp': tpController.text,
-      'traderType': '${sharedPreferences.getString('trader_selected')}',
-      'type': type,
-    });
+    try {
+      setBusy(true);
+      if (isMT5 == true) {
+        await fireStore.collection('MT5_ACTIVE_TRADES').add({
+          'assetValue': '$assetValue',
+          'inputVolume': inputVolumeController.text,
+          'price': '$priceValue',
+          'sl': slController.text,
+          'tp': tpController.text,
+          'type': type,
+        });
+      } else if (isMT5 == false) {
+        await fireStore.collection('MT4_ACTIVE_TRADES').add({
+          'assetValue': '$assetValue',
+          'inputVolume': inputVolumeController.text,
+          'price': '$priceValue',
+          'sl': slController.text,
+          'tp': tpController.text,
+          'type': type,
+        });
+      }
 
-    inputVolumeController.clear();
-    tpController.clear();
-    slController.clear();
-    assetValue = null;
-    priceValue = null;
-    notifyListeners();
+      inputVolumeController.clear();
+      tpController.clear();
+      slController.clear();
+      assetValue = null;
+      priceValue = null;
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text(
+          'New trade added successfully...',
+        )));
 
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text(
-      'Success',
-    )));
-
-    NavigationService.navigateToHistory(context);
-  }
-
-  List<Widget> widgetOptions = <Widget>[
-    const MT4Screen(),
-    const MT5Screen(),
-  ];
-
-  int selectedIndex = 0;
-
-  updateIndex(int value) {
-    selectedIndex = value;
-    notifyListeners();
+        AutoRouter.of(context).pop(true);
+      }
+    } catch (e) {
+      print(e);
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+          '$e',
+        )));
+      }
+    } finally {
+      setBusy(false);
+    }
   }
 }

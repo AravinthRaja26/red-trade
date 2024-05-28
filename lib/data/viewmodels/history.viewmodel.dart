@@ -52,7 +52,7 @@ class HistoryViewModel extends BaseViewModel {
     history.addCondition('traderType','==','${sharedPreferences.getString('trader_selected')}');
     final temp = await history.get();
     temp?.forEach((key, value) {
-      historyList.add(HistoryModel.fromJson(value));
+      // historyList.add(HistoryModel.fromJson(value));
     });
     loadScreen = false;
     notifyListeners();
